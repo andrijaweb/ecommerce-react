@@ -12,7 +12,7 @@ function Search() {
       <input
         type="text"
         placeholder="Search"
-        className="w-full pl-14 pr-5 py-2.5 bg-beigeDarker rounded-lg placeholder:text-slate-700"
+        className="w-full pl-14 pr-5 py-2.5 bg-beigeDarker rounded-lg placeholder:text-slate-700 focus:outline-none focus:ring focus:ring-yellow-500 focus:ring-opacity-50"
       />
     </form>
   );
