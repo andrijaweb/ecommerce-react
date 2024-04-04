@@ -3,7 +3,7 @@ import Button from "./Button";
 function Home() {
   return (
     <>
-      <div className="absolute top-0 right-0">
+      <div className="absolute top-0 right-0 z-0">
         <img src="/home-curve.svg" alt="home curve path background" />
       </div>
       <div className="text-sm text-center flex flex-col items-center justify-center">
