@@ -7,10 +7,12 @@ import Products, {
 import Product from "./features/products/Product";
 import Cart from "./features/cart/Cart";
 import AppLayout from "./ui/AppLayout";
+import Error from "./ui/Error";
 
 const router = createBrowserRouter([
   {
     element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -20,6 +22,7 @@ const router = createBrowserRouter([
         path: "/products",
         element: <Products />,
         loader: productsLoader,
+        errorElement: <Error />,
       },
       {
         path: "product/product:id",

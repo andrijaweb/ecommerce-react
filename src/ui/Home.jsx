@@ -1,3 +1,4 @@
+import { HiChevronRight } from "react-icons/hi2";
 import Button from "./Button";
 
 function Home() {
@@ -21,7 +22,10 @@ function Home() {
           experience tailored just for you. Start exploring today and redefine
           the way you shop!
         </p>
-        <Button />
+        <Button>
+          <span>Start Shopping</span>
+          <HiChevronRight className="inline ml-2.5" />
+        </Button>
       </div>
     </>
   );
