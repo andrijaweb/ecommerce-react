@@ -1,5 +1,6 @@
 import { HiChevronRight } from "react-icons/hi2";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -22,10 +23,12 @@ function Home() {
           experience tailored just for you. Start exploring today and redefine
           the way you shop!
         </p>
-        <Button>
-          <span>Start Shopping</span>
-          <HiChevronRight className="inline ml-2.5" />
-        </Button>
+        <Link to="/products">
+          <Button>
+            <span>Start Shopping</span>
+            <HiChevronRight className="inline ml-2.5" />
+          </Button>
+        </Link>
       </div>
     </>
   );

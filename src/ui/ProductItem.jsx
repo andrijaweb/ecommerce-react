@@ -3,6 +3,7 @@ import Stars from "./Stars";
 
 function ProductItem({ product }) {
   const {
+    id,
     title,
     price,
     image,
@@ -11,7 +12,7 @@ function ProductItem({ product }) {
 
   return (
     <li className="w-[19.875rem]">
-      <Link className="flex flex-col h-full">
+      <Link to={`/products/${id}`} className="flex flex-col h-full">
         <div className="bg-white p-5 flex items-center justify-center rounded-t-lg h-[17.125rem]">
           <img
             src={image}

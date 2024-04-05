@@ -7,3 +7,11 @@ export async function getProducts() {
   const data = await res.json();
   return data;
 }
+
+export async function getProduct(id) {
+  const res = await fetch(`${BASE_URL}/products/${id}`);
+  if (!res.ok) throw Error("Error while fetching a product.");
+
+  const data = await res.json();
+  return data;
+}

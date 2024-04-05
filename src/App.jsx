@@ -4,7 +4,7 @@ import Home from "./ui/Home";
 import Products, {
   loader as productsLoader,
 } from "./features/products/Products";
-import Product from "./features/products/Product";
+import Product, { loader as productLoader } from "./features/products/Product";
 import Cart from "./features/cart/Cart";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
@@ -25,8 +25,10 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path: "product/product:id",
+        path: "products/:productId",
         element: <Product />,
+        loader: productLoader,
+        errorElement: <Error />,
       },
       {
         path: "/cart",
