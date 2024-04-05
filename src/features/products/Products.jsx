@@ -1,7 +1,6 @@
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import { getProducts } from "../../services/apiEcommerce";
 import ProductItem from "../../ui/ProductItem";
-import Spinner from "../../ui/Spinner";
 import Filter from "../../ui/Filter";
 
 function Products() {
@@ -9,7 +8,7 @@ function Products() {
   const [searchParams] = useSearchParams();
   console.log(products);
 
-  if (!products) return <Spinner />;
+  if (!products) return;
 
   const filterValue = searchParams.get("category") || "all";
   let filteredProducts;
