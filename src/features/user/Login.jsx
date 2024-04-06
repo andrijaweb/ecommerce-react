@@ -1,4 +1,5 @@
 import { HiChevronRight } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -44,15 +45,15 @@ function Login() {
           Login
           <HiChevronRight className="inline ml-2" />
         </button>
-        <p>
-          Don't have an account?{" "}
-          <span>
-            <a className="text-blue-600" href="/">
-              Sign up
-            </a>
-          </span>
-        </p>
       </form>
+      <p className="text-sm max-w-[26.875rem] mx-auto">
+        Don't have an account?{" "}
+        <span>
+          <Link to="/signup" className="text-blue-600" href="/">
+            Sign up
+          </Link>
+        </span>
+      </p>
     </div>
   );
 }

@@ -7,6 +7,7 @@ import Products, {
 import Product, { loader as productLoader } from "./features/products/Product";
 import Cart from "./features/cart/Cart";
 import Login from "./features/user/Login";
+import Signup from "./features/user/Signup";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
       },
     ],
   },
