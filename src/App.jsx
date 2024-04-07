@@ -6,8 +6,8 @@ import Products, {
 } from "./features/products/Products";
 import Product, { loader as productLoader } from "./features/products/Product";
 import Cart from "./features/cart/Cart";
-import Login from "./features/user/Login";
-import Signup from "./features/user/Signup";
+import Login, { action as loginAction } from "./features/user/Login";
+import Signup, { action as createUserAction } from "./features/user/Signup";
 import AppLayout from "./ui/AppLayout";
 import Error from "./ui/Error";
 
@@ -39,10 +39,12 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+        action: loginAction,
       },
       {
         path: "/signup",
         element: <Signup />,
+        action: createUserAction,
       },
     ],
   },

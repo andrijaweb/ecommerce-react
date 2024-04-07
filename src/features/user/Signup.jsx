@@ -1,5 +1,6 @@
 import { HiChevronRight } from "react-icons/hi2";
-import { Link } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
+import { createUser } from "../../services/apiEcommerce";
 
 function Signup() {
   return (
@@ -11,32 +12,26 @@ function Signup() {
       </header>
 
       <div>
-        <form className="text-sm" autocomplete="off">
-          <div className="flex gap-2.5 mb-5">
-            <div>
-              <label className="font-medium">First Name</label>
-              <input
-                type="text"
-                placeholder="John"
-                className="mt-2.5 self-start w-full bg-transparent p-2.5 border-2 border-slate-600 rounded-md"
-              />
-            </div>
-            <div>
-              <label className="font-medium">Last Name</label>
-              <input
-                type="text"
-                placeholder="Doe"
-                className="mt-2.5 self-start w-full bg-transparent p-2.5 border-2 border-slate-600 rounded-md"
-              />
-            </div>
+        <Form className="text-sm" method="POST">
+          <div className="flex flex-col gap-2.5 mb-5">
+            <label className="font-medium">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="John"
+              className="self-start w-full bg-transparent p-2.5 border-2 border-slate-600 rounded-md"
+              required
+            />
           </div>
 
           <div className="flex flex-col gap-2.5 mb-5">
             <label className="font-medium">Email</label>
             <input
               type="text"
+              name="email"
               placeholder="johndoe@gmail.com"
               className="self-start w-full bg-transparent p-2.5 border-2 border-slate-600 rounded-md"
+              required
             />
           </div>
 
@@ -44,8 +39,9 @@ function Signup() {
             <label className="font-medium">Password</label>
             <input
               type="password"
-              autocomplete="off"
+              name="password"
               className="self-start w-full bg-transparent p-2.5 border-2 border-slate-600 rounded-md"
+              required
             />
           </div>
 
@@ -53,17 +49,21 @@ function Signup() {
             <div>
               <label className="font-medium">Phone</label>
               <input
-                type="text"
+                type="tel"
+                name="phone"
                 placeholder="6838628384"
                 className="mt-2.5 self-start w-full bg-transparent p-2.5 border-2 border-slate-600 rounded-md"
+                required
               />
             </div>
             <div>
               <label className="font-medium">Address</label>
               <input
                 type="text"
+                name="address"
                 placeholder="Saint Luis. 84"
                 className="mt-2.5 self-start w-full bg-transparent p-2.5 border-2 border-slate-600 rounded-md"
+                required
               />
             </div>
           </div>
@@ -77,11 +77,11 @@ function Signup() {
             <span className="text-blue-600">Terms of Service</span> and{" "}
             <span className="text-blue-600">Privacy Policy</span>
           </p>
-        </form>
+        </Form>
         <p className="text-sm">
           Already have an account?{" "}
           <span>
-            <Link to="/login" className="text-blue-600" href="/">
+            <Link to="/login" className="text-blue-600">
               Sign in
             </Link>
           </span>
@@ -89,6 +89,16 @@ function Signup() {
       </div>
     </div>
   );
+}
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+
+  await createUser(data);
+
+  return redirect("/");
 }
 
 export default Signup;

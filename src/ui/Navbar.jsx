@@ -29,7 +29,7 @@ function Navbar() {
         </li>
         <li>
           <Link
-            to="/"
+            to="/login"
             className="flex flex-col items-center justify-center p-2 rounded-full bg-mainYellow"
           >
             <HiOutlineUser className="text-2xl" />
