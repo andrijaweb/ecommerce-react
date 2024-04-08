@@ -1,14 +1,19 @@
 import { getProduct } from "../../services/apiEcommerce";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Stars from "../../ui/Stars";
 import { HiOutlineHeart, HiOutlineShoppingBag } from "react-icons/hi2";
 import Button from "../../ui/Button";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, hasItems } from "../cart/cartSlice";
 
 function Product() {
+  const dispatch = useDispatch();
+  const hasCartItems = useSelector(hasItems);
+
   const product = useLoaderData();
   const navigate = useNavigate();
-  console.log(product);
+
   const {
     id,
     image,
@@ -17,6 +22,20 @@ function Product() {
     title,
     description,
   } = product;
+
+  function handleAddToCart() {
+    const newCartItem = {
+      productId: id,
+      title: title,
+      description: description,
+      imageUrl: image,
+      quantity: 1,
+      price,
+      totalPrice: price * 1,
+    };
+
+    dispatch(addItem(newCartItem));
+  }
 
   return (
     <>
@@ -42,7 +61,7 @@ function Product() {
             <p className="opacity-70 leading-6">{description}</p>
           </div>
           <div className="flex items-center gap-8 my-7">
-            <Button>
+            <Button onClick={handleAddToCart}>
               <HiOutlineShoppingBag className="text-2xl inline mr-2.5" />
               Add To Cart
             </Button>
@@ -51,6 +70,11 @@ function Product() {
               Add to Favorites
             </button>
           </div>
+          {hasCartItems && (
+            <Link to="/cart" className="text-blue-400">
+              Go to Cart &rarr;
+            </Link>
+          )}
         </div>
       </div>
     </>
