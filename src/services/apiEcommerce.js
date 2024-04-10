@@ -35,7 +35,6 @@ export async function createUser(newUser) {
     });
 
     if (!res.ok) throw Error();
-    const data = await res.json();
   } catch {
     throw Error("Failed creating new user");
   }
