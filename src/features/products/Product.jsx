@@ -55,7 +55,7 @@ function Product() {
               <span className="text-xs opacity-50">{count} reviews</span>
             </div>
           </div>
-          <p className="text-6xl font-medium my-10">${price}</p>
+          <p className="text-6xl font-medium my-10">${price.toFixed(2)}</p>
           <div>
             <h3 className="text-lg mb-2.5">Description:</h3>
             <p className="opacity-70 leading-6">{description}</p>

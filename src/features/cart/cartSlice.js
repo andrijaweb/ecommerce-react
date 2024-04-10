@@ -47,4 +47,4 @@ export const getCart = (state) => state.cart.cart;
 export const hasItems = (state) => state.cart.cart.length > 0;
 
 export const getTotalCartPrice = (state) =>
-  state.cart.cart.reduce((sum, item) => sum + item.unitPrice, 0);
+  state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0);

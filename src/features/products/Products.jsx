@@ -1,6 +1,6 @@
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import { getProducts } from "../../services/apiEcommerce";
-import ProductItem from "../../ui/ProductItem";
+import ProductItem from "./ProductItem";
 import Filter from "../../ui/Filter";
 
 function Products() {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Stars from "./Stars";
+import Stars from "../../ui/Stars";
 
 function ProductItem({ product }) {
   const {
@@ -26,7 +26,7 @@ function ProductItem({ product }) {
             <Stars maxRating={5} rating={rate} />
             <span className="text-xs opacity-50">{count} reviews</span>
           </div>
-          <p className="font-bold">${price}</p>
+          <p className="font-bold">${price.toFixed(2)}</p>
         </div>
       </Link>
     </li>
